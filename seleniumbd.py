@@ -1,28 +1,32 @@
-import os
-import selenium
+# import Module
 from selenium import webdriver
-import time
-from webdriver_manager.chrome import ChromeDriverManager
-from selenium.common.exceptions import ElementClickInterceptedException
 
-username="admin"
-password="admin123@#$"
-time.sleep(3)
-opts = webdriver.ChromeOptions()
-opts.headless =True
-# chromedriver="/usr/lib/chromium-browser/chromedriver.exe"
-# driver = webdriver.Chrome(chromedriver)
-# print(driver)
-# os.environ["webdriver.chrome.driver"] = chromedriver
-driver = webdriver.Chrome(ChromeDriverManager().install())
+# Create Chrome Object
+driver = webdriver.Chrome('/home/associates/.wdm/drivers/chromedriver/linux64/109.0.5414.74/chromedriver')
+# with open("/home/associates/url.txt", "r") as file:
+# 	for line in file:
+# 		print(line)
+# 		time.sleep(1)
 
-search_url="https://junior.wordpress.demo.rnjcs.in/advert-media/wp-login.php?redirect_to=https%3A%2F%2Fjunior.wordpress.demo.rnjcs.in%2Fadvert-media%2Fwp-admin%2F%3Flanguage%3Den%26c%3Dwp-admin&reauth=1" 
-# print(search_url)
-# print(username,password)
-# exit()
-driver.navigate().to(search_url)
-driver.find_element_by_id('user_login').send_keys(username)
-driver.find_element_by_id('user_pass').send_keys(password)
-driver.find_element_by_id("wp-submit").submit()
-driver.forward()
-print(driver.requests())
+def webline(user_name):
+	
+	# Open the url
+	driver.get('https://www.savethevideo.com/vimeo-downloader')
+
+	# Username for
+	username = driver.find_element_by_xpath('//*[@id="user_login"]')
+	with open("/home/associates/url.txt", "r") as file:
+		for line in file:
+			username.send_keys(user_name,line)
+
+	# Password for login
+	# password = driver.find_element_by_xpath('//*[@id="user_pass"]')
+	# password.send_keys(pass_word)
+
+	# Click on signin button
+	# signin = driver.find_element_by_xpath(
+	# 	'//*[@id="wp-submit"]')
+	# signin.click()
+
+
+webline(line);

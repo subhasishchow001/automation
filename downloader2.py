@@ -14,7 +14,6 @@ class Download(Printer):
 		driver = webdriver.Chrome('/home/associates/.wdm/drivers/chromedriver/linux64/109.0.5414.74/chromedriver')
 		driver.get('https://www.savethevideo.com/vimeo-downloader')
 		username = driver.find_element_by_xpath('//*[@id="url"]')
-		user_name=line
 		username.send_keys(user_name)
 
 
