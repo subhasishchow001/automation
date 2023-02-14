@@ -22,7 +22,9 @@ with open("/home/associates/url.txt", "r") as file:
             start.click()
 
             #close the newly opened window
-            driver.get(url)
+            #time delay
+            time.sleep(3)
+            
             driver.close()
 
             #pressing the download button
